@@ -1,0 +1,30 @@
+.cta {
+  padding: clamp(6rem, 14vw, 10rem) 0;
+  background: var(--bg);
+}
+
+.cta__content {
+  max-width: 760px;
+}
+
+.cta__heading {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  margin-bottom: 1.5rem;
+}
+
+.cta__copy {
+  max-width: 28rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  .cta__content .btn {
+    width: 100%;
+  }
+}

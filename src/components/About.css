@@ -1,0 +1,44 @@
+.about {
+  padding: clamp(6rem, 12vw, 9rem) 0;
+  background: var(--bg-soft);
+}
+
+.about__content {
+  max-width: 720px;
+}
+
+.about__heading {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+}
+
+.about__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about__copy p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 38rem;
+}
+
+.about__goal-label {
+  margin-top: 0.75rem;
+}
+
+.about__goal {
+  color: var(--text) !important;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.about__copy .btn-text {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}
