@@ -90,14 +90,6 @@
   flex: 1;
   position: relative;
   z-index: 1;
-  transition: filter 0.8s var(--ease), opacity 0.8s var(--ease);
-}
-
-.studio--merged .studio__body,
-.studio--merged .studio__toolbar,
-.studio--merged .studio__chrome {
-  filter: none;
-  opacity: 1;
 }
 
 .studio__sidebar {
@@ -325,6 +317,9 @@
   line-height: 1.55;
   color: #f5f5f7;
   transform-origin: center center;
+}
+
+.studio--merged .studio__snapshot {
   will-change: left, top, transform;
 }
 

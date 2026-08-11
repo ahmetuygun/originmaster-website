@@ -24,7 +24,7 @@ export function AISection() {
           <Reveal delay={0.1}>
             <PremiumMedia
               src="/images/ai-intelligence.jpg"
-              alt="Abstract visualization of intelligence as connected luminous nodes in soft silver and blue"
+              alt="Earth at night from space — city lights forming a planetary nervous system of connected intelligence"
               aspect="square"
             />
           </Reveal>

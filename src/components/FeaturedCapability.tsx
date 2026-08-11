@@ -39,7 +39,7 @@ export function FeaturedCapability() {
           <Reveal delay={0.1} className="journey__visual">
             <PremiumMedia
               src="/images/journey-milestones.jpg"
-              alt="Abstract milestone path representing discovery, design, build, launch, and evolution"
+              alt="Software engineers collaborating over code on multiple screens in a bright office"
               aspect="wide"
             />
           </Reveal>

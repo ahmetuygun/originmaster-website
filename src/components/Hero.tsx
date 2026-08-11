@@ -11,6 +11,7 @@ import './Hero.css'
 export function Hero() {
   const reduce = useReducedMotion()
   const storyRef = useRef<HTMLDivElement>(null)
+  const rafRef = useRef(0)
   const [progress, setProgress] = useState(0)
 
   const { scrollYProgress } = useScroll({
@@ -20,10 +21,14 @@ export function Hero() {
 
   useEffect(() => {
     setProgress(scrollYProgress.get())
+    return () => cancelAnimationFrame(rafRef.current)
   }, [scrollYProgress])
 
   useMotionValueEvent(scrollYProgress, 'change', (value) => {
-    setProgress(value)
+    cancelAnimationFrame(rafRef.current)
+    rafRef.current = requestAnimationFrame(() => {
+      setProgress((prev) => (Math.abs(prev - value) < 0.0008 ? prev : value))
+    })
   })
 
   return (

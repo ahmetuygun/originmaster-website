@@ -18,7 +18,7 @@ export function ProductShowcase() {
         <Reveal delay={0.1}>
           <PremiumMedia
             src="/images/product-dashboard.jpg"
-            alt="Clean enterprise software dashboard showing analytics, charts, and data tables in a light browser interface"
+            alt="Originmaster product dashboard with overview metrics, revenue chart, traffic sources, and activity table"
             aspect="product"
             className="product__media"
           />

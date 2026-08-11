@@ -5,20 +5,20 @@ import './CaseStudies.css'
 const cases = [
   {
     image: '/images/case-operations.jpg',
-    alt: 'Abstract layered glass panels representing an enterprise operations platform',
+    alt: 'Engineer reviewing systems on a laptop inside a modern data center',
     title: 'Enterprise Operations Platform',
     description: 'Modern software for managing complex business operations.',
   },
   {
     image: '/images/case-ai.jpg',
-    alt: 'Abstract intelligent assistant visualization with orbiting nodes and a frosted interface panel',
+    alt: 'Robotic hand interacting with a glowing neural network of connected data nodes',
     title: 'AI-Powered Business Assistant',
     description:
       'An intelligent platform designed to help teams work faster and access information more effectively.',
   },
   {
     image: '/images/case-experience.jpg',
-    alt: 'Abstract customer experience visual with a glass device and flowing silver forms',
+    alt: 'Designer mapping a customer journey across connected mobile app wireframes',
     title: 'Digital Customer Experience',
     description: 'A modern platform designed to simplify customer journeys.',
   },

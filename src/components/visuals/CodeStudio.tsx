@@ -191,10 +191,10 @@ type StudioState = {
   gitDone: boolean
 }
 
-const CODE_END = 0.46
-const RUN_END = 0.56
-const GIT_END = 0.66
-const DONE_END = 0.72
+const CODE_END = 0.5
+const RUN_END = 0.6
+const GIT_END = 0.72
+const DONE_END = 0.76
 const MERGE_SCALE_DESKTOP = 5.6
 
 type LiftOrigin = {
@@ -213,11 +213,6 @@ function clamp01(value: number) {
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t
-}
-
-function smoothstep(t: number) {
-  const x = clamp01(t)
-  return x * x * (3 - 2 * x)
 }
 
 function measureLiftOrigin(
@@ -308,29 +303,42 @@ function deriveState(progress: number, reduce: boolean | null): StudioState {
   }
 }
 
-function tokenizeVisible(visible: string): Token[][] {
-  const rows = visible.split('\n')
-  return rows.map((line, lineIndex) => {
-    const template = SOURCE[lineIndex] ?? [{ text: line }]
-    let remaining = line
-    const tokens: Token[] = []
+function tokenizeVisible(charCount: number): Token[][] {
+  if (charCount <= 0) return [[]]
+  if (charCount >= flatSource.length) return SOURCE
 
-    for (const token of template) {
-      if (!remaining) break
-      if (remaining.startsWith(token.text)) {
-        tokens.push(token)
-        remaining = remaining.slice(token.text.length)
-      } else if (token.text.startsWith(remaining)) {
-        tokens.push({ ...token, text: remaining })
-        remaining = ''
-      } else {
-        break
-      }
+  let remaining = charCount
+  const rows: Token[][] = []
+
+  for (const template of SOURCE) {
+    if (remaining <= 0) break
+
+    const lineLen = template.reduce((sum, token) => sum + token.text.length, 0)
+
+    if (remaining >= lineLen) {
+      rows.push(template)
+      remaining -= lineLen
+      // Consume the joining newline when more characters remain.
+      if (remaining > 0) remaining -= 1
+      continue
     }
 
-    if (remaining) tokens.push({ text: remaining })
-    return tokens
-  })
+    const partial: Token[] = []
+    for (const token of template) {
+      if (remaining <= 0) break
+      if (token.text.length <= remaining) {
+        partial.push(token)
+        remaining -= token.text.length
+      } else {
+        partial.push({ ...token, text: token.text.slice(0, remaining) })
+        remaining = 0
+      }
+    }
+    rows.push(partial)
+    break
+  }
+
+  return rows
 }
 
 type CodeStudioProps = {
@@ -351,8 +359,7 @@ export function CodeStudio({ progress }: CodeStudioProps) {
   const state = useMemo(() => deriveState(p, reduce), [p, reduce])
   const { phase, charCount, runLine, gitText, gitDone } = state
 
-  const visibleCode = flatSource.slice(0, charCount)
-  const lines = useMemo(() => tokenizeVisible(visibleCode), [visibleCode])
+  const lines = useMemo(() => tokenizeVisible(charCount), [charCount])
   const totalLines = Math.max(lines.length, 1)
   const rising = phase === 'merged'
   const showCursor = phase === 'coding' || phase === 'git'
@@ -364,9 +371,9 @@ export function CodeStudio({ progress }: CodeStudioProps) {
       ? clamp01((p - DONE_END) / (1 - DONE_END))
       : 0
 
-  const raiseT = smoothstep(mergeT)
+  const raiseT = mergeT
   // Stay locked to the command-line position while growing, then move to center.
-  const moveT = smoothstep(clamp01((mergeT - 0.4) / 0.6))
+  const moveT = clamp01((mergeT - 0.4) / 0.6)
   const raiseScale = lerp(1, liftOrigin?.maxScale ?? MERGE_SCALE_DESKTOP, raiseT)
   const prefixT = clamp01((mergeT - 0.42) / 0.32)
   const gapT = clamp01((mergeT - 0.52) / 0.3)
@@ -384,13 +391,12 @@ export function CodeStudio({ progress }: CodeStudioProps) {
     const line = gitLineRef.current
     if (!studio || !merge || !line) return
 
-    // Keep tracking the live command-line box while still locked in place.
-    const locked = phase === 'merged' && moveT > 0.001
+    // Measure once when arriving at done/merged — avoid per-frame layout thrash.
     setLiftOrigin((prev) => {
-      if (prev && locked) return prev
+      if (prev && phase === 'merged') return prev
       return measureLiftOrigin(merge, line, studio)
     })
-  }, [phase, gitDone, moveT])
+  }, [phase, gitDone])
 
   useLayoutEffect(() => {
     if (phase !== 'coding') return
@@ -403,10 +409,7 @@ export function CodeStudio({ progress }: CodeStudioProps) {
     const viewBottom = editor.scrollTop + editor.clientHeight - 24
 
     if (caretBottom > viewBottom || caret.offsetTop < editor.scrollTop + 8) {
-      editor.scrollTo({
-        top: Math.max(0, caretBottom - editor.clientHeight + 28),
-        behavior: 'auto',
-      })
+      editor.scrollTop = Math.max(0, caretBottom - editor.clientHeight + 28)
     }
   }, [charCount, phase, lines.length])
 
@@ -415,7 +418,7 @@ export function CodeStudio({ progress }: CodeStudioProps) {
     const terminal = terminalRef.current
     if (!terminal) return
     terminal.scrollTop = terminal.scrollHeight
-  }, [phase, runLine, gitText, gitDone])
+  }, [phase, runLine, gitDone])
 
   const snapshotStyle: CSSProperties | undefined = liftOrigin
     ? {
@@ -483,7 +486,7 @@ export function CodeStudio({ progress }: CodeStudioProps) {
               ))}
             </div>
             <pre className="studio__code">
-              {(visibleCode ? lines : [[]]).map((line, index, arr) => (
+              {(charCount > 0 ? lines : [[]]).map((line, index, arr) => (
                 <div key={index} className="studio__line">
                   {line.map((token, tokenIndex) => (
                     <span

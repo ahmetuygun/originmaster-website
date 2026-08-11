@@ -35,6 +35,10 @@
   border-radius: 20px;
 }
 
+.premium-media--product img {
+  object-fit: fill;
+}
+
 .premium-media--square {
   aspect-ratio: 1;
   max-width: 480px;
