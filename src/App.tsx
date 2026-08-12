@@ -4,7 +4,9 @@ import { Introduction } from './components/Introduction'
 import { Services } from './components/Services'
 import { FeaturedCapability } from './components/FeaturedCapability'
 import { ProductShowcase } from './components/ProductShowcase'
+import { TechStack } from './components/TechStack'
 import { AISection } from './components/AISection'
+import { AIPlatforms } from './components/AIPlatforms'
 import { Enterprise } from './components/Enterprise'
 import { Industries } from './components/Industries'
 import { CaseStudies } from './components/CaseStudies'
@@ -23,7 +25,9 @@ function App() {
         <Services />
         <FeaturedCapability />
         <ProductShowcase />
+        <TechStack />
         <AISection />
+        <AIPlatforms />
         <Enterprise />
         <Industries />
         <CaseStudies />

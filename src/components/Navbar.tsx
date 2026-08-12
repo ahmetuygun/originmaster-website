@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Logo } from './Logo'
 import './Navbar.css'
 
 const links = [
@@ -30,8 +31,13 @@ export function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''} ${open ? 'nav--open' : ''}`}>
       <div className="nav__inner container-wide">
-        <a href="#top" className="nav__logo" onClick={() => setOpen(false)}>
-          ORIGINMASTER
+        <a
+          href="#top"
+          className="nav__logo"
+          onClick={() => setOpen(false)}
+          aria-label="Origin Master home"
+        >
+          <Logo />
         </a>
 
         <nav className="nav__links" aria-label="Primary">
@@ -52,10 +58,24 @@ export function Navbar() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span />
-          <span />
+          <img
+            className="nav__menu-icon"
+            src="/menu-icon.png"
+            alt=""
+            width={36}
+            height={26}
+            decoding="async"
+          />
         </button>
       </div>
+
+      <button
+        type="button"
+        className={`nav__backdrop ${open ? 'is-open' : ''}`}
+        aria-label="Close menu"
+        tabIndex={open ? 0 : -1}
+        onClick={() => setOpen(false)}
+      />
 
       <div className={`nav__mobile ${open ? 'is-open' : ''}`}>
         <nav aria-label="Mobile">

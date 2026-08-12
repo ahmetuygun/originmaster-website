@@ -13,11 +13,15 @@
 }
 
 .footer__logo {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  margin-bottom: 0.75rem;
+}
+
+.footer__logo .brand-logo {
+  height: 52px;
+  width: auto;
 }
 
 .footer__tagline {

@@ -1,3 +1,4 @@
+import { Logo } from './Logo'
 import './Footer.css'
 
 const nav = [
@@ -14,8 +15,8 @@ export function Footer() {
       <div className="container">
         <div className="footer__top">
           <div>
-            <a href="#top" className="footer__logo">
-              ORIGINMASTER
+            <a href="#top" className="footer__logo" aria-label="Origin Master home">
+              <Logo />
             </a>
             <p className="footer__tagline">Software. AI. Digital.</p>
           </div>
