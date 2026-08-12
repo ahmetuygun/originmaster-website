@@ -50,7 +50,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
-            Technology, beautifully engineered.
+            Where Business Meets{' '}
+            <span className="hero__nowrap">AI-First</span> Engineering.
           </motion.h1>
 
           <motion.p
@@ -59,8 +60,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
           >
-            Originmaster builds intelligent software and digital experiences that help
-            ambitious businesses work better, move faster, and grow with confidence.
+            Originmaster builds intelligent software and digital platforms that eliminate
+            operational friction, accelerate execution, and power scalable growth.
           </motion.p>
 
           <motion.div

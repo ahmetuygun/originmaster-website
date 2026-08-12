@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Prefer the brand domain once DNS is connected
+Sitemap: https://originmaster.ie/sitemap.xml
+Sitemap: https://originmaster-website.vercel.app/sitemap.xml

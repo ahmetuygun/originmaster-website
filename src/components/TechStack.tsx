@@ -46,7 +46,7 @@ function TechGroup({
       <ul className="tech-stack__list">
         {items.map((item) => (
           <li key={item.name} className="tech-stack__chip">
-            <img src={item.logo} alt="" width={22} height={22} />
+            <img src={item.logo} alt={`${item.name} logo`} width={22} height={22} />
             <span className="tech-stack__chip-name">{item.name}</span>
           </li>
         ))}

@@ -15,7 +15,7 @@ export function Footer() {
       <div className="container">
         <div className="footer__top">
           <div>
-            <a href="#top" className="footer__logo" aria-label="Origin Master home">
+            <a href="#top" className="footer__logo" aria-label="Originmaster home">
               <Logo />
             </a>
             <p className="footer__tagline">Software. AI. Digital.</p>
@@ -36,7 +36,10 @@ export function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© 2026 Originmaster. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Originmaster. Dublin, Ireland. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

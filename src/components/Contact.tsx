@@ -8,11 +8,13 @@ const email = 'info@originmaster.ie'
 
 export function Contact() {
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" aria-labelledby="contact-heading">
       <div className="container">
         <Reveal>
           <p className="section-label">Contact</p>
-          <h2 className="contact__heading">Let's talk.</h2>
+          <h2 id="contact-heading" className="contact__heading">
+            Let's talk.
+          </h2>
           <p className="contact__sub">
             Have a project, idea, or technology challenge? Reach out — we'd love to hear
             from you.

@@ -41,7 +41,7 @@ export function AIPlatforms() {
                 <img
                   className="ai-platforms__logo"
                   src={item.logo}
-                  alt=""
+                  alt={`${item.name} logo`}
                   width={28}
                   height={28}
                 />

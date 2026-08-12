@@ -41,11 +41,11 @@ const services = [
 
 export function Services() {
   return (
-    <section className="services" id="services">
+    <section className="services" id="services" aria-labelledby="services-heading">
       <div className="container">
         <Reveal>
           <p className="section-label">What we do</p>
-          <h2 className="section-heading services__heading">
+          <h2 id="services-heading" className="section-heading services__heading">
             Everything you need to build what’s next.
           </h2>
         </Reveal>

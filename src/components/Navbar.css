@@ -34,7 +34,7 @@
 }
 
 .nav__logo .brand-logo {
-  height: 48px;
+  height: 40px;
   width: auto;
 }
 
@@ -114,7 +114,7 @@
   .nav__inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     z-index: 3;
   }
@@ -126,7 +126,12 @@
 
   .nav__logo {
     justify-self: unset;
-    padding-top: 12px;
+    padding-top: 10px;
+    margin-right: 3.5rem;
+  }
+
+  .nav__logo .brand-logo {
+    height: 34px;
   }
 
   .nav__menu {
