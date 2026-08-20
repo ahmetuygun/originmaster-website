@@ -1,14 +1,22 @@
 .cta {
-  padding: clamp(6rem, 14vw, 10rem) 0;
+  padding: clamp(4rem, 9vw, 7rem) 0;
   background: var(--bg);
 }
 
 .cta__content {
-  max-width: 760px;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 6vw, 5rem);
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse 70% 90% at 100% 0%, rgba(139, 121, 232, 0.4), transparent 60%),
+    var(--deep);
+  color: var(--on-deep);
 }
 
 .cta__heading {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  max-width: 14ch;
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1.02;
@@ -19,11 +27,15 @@
   max-width: 28rem;
   font-size: 1.125rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--on-deep-muted);
   margin-bottom: 2.25rem;
 }
 
 @media (max-width: 768px) {
+  .cta__content {
+    border-radius: 22px;
+  }
+
   .cta__content .btn {
     width: 100%;
   }

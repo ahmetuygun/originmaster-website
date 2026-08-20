@@ -1,6 +1,8 @@
 .hero {
   padding: clamp(5rem, 12vw, 8.5rem) 0 0;
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(91, 75, 201, 0.13), transparent 62%),
+    var(--bg);
 }
 
 .hero__content {
@@ -49,7 +51,7 @@
   display: flex;
   align-items: center;
   padding: 1.5rem 0 3rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), #ffffff 18%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), var(--bg) 18%);
 }
 
 .hero__scroll-hint {

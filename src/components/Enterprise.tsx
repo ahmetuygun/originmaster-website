@@ -5,14 +5,17 @@ const qualities = [
   {
     title: 'Reliable',
     copy: 'Systems engineered for consistency, clarity, and long-term maintainability.',
+    variant: 'soft',
   },
   {
     title: 'Scalable',
     copy: 'Architecture that grows with demand without sacrificing performance or control.',
+    variant: 'deep',
   },
   {
     title: 'Secure',
     copy: 'Security treated as a foundation — not a feature added after the fact.',
+    variant: 'alt',
   },
 ]
 
@@ -34,7 +37,7 @@ export function Enterprise() {
         <div className="enterprise__qualities">
           {qualities.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.06}>
-              <div className="enterprise__item">
+              <div className={`enterprise__item enterprise__item--${item.variant}`}>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
               </div>

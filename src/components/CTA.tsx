@@ -16,7 +16,7 @@ export function CTA() {
               Tell us what you're trying to solve. We'll help you find the right technology
               approach.
             </p>
-            <a href="#contact" className="btn btn-primary">
+            <a href="#contact" className="btn btn-on-deep">
               Start a Conversation →
             </a>
           </div>

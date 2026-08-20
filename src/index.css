@@ -1,12 +1,23 @@
 :root {
   --bg: #ffffff;
-  --bg-secondary: #f7f7f5;
-  --bg-soft: #fafaf8;
-  --text: #111111;
-  --text-secondary: #6e6e73;
-  --border: #e5e5e5;
-  --accent: #2563eb;
-  --accent-soft: rgba(37, 99, 235, 0.08);
+  --bg-secondary: #f1eefb;
+  --bg-soft: #faf9fd;
+  --text: #221c4b;
+  --text-secondary: #6b6590;
+  --border: #e5e1f1;
+  --accent: #5b4bc9;
+  --accent-soft: rgba(91, 75, 201, 0.09);
+
+  /* Deep indigo surfaces for inverted panels and primary actions */
+  --deep: #262050;
+  --deep-2: #3a2f66;
+  --on-deep: #f4f2fd;
+  --on-deep-muted: rgba(244, 242, 253, 0.68);
+
+  /* Lavender surfaces for soft, tinted cards */
+  --lavender: #e9e6f7;
+  --lavender-2: #dcd7f0;
+
   --nav-height: 76px;
   --max-width: 1120px;
   --max-width-wide: 1240px;
@@ -156,13 +167,13 @@ button {
 }
 
 .btn-primary {
-  background: var(--text);
-  color: #fff;
+  background: var(--deep);
+  color: var(--on-deep);
 }
 
 .btn-primary:hover {
-  background: #000;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  background: var(--deep-2);
+  box-shadow: 0 12px 30px rgba(38, 32, 80, 0.24);
 }
 
 .btn-secondary {
@@ -172,8 +183,19 @@ button {
 }
 
 .btn-secondary:hover {
-  border-color: #cfcfcf;
-  background: var(--bg-soft);
+  border-color: rgba(91, 75, 201, 0.32);
+  background: var(--accent-soft);
+}
+
+/* Inverted variant for use inside deep indigo panels */
+.btn-on-deep {
+  background: var(--on-deep);
+  color: var(--deep);
+}
+
+.btn-on-deep:hover {
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(12, 8, 34, 0.32);
 }
 
 .btn-text {

@@ -25,12 +25,12 @@ function App() {
       <main id="main-content">
         <Hero />
         <Introduction />
+        <AIPlatforms />
         <Services />
         <FeaturedCapability />
         <ProductShowcase />
         <TechStack />
         <AISection />
-        <AIPlatforms />
         <Enterprise />
         <Industries />
         <CaseStudies />

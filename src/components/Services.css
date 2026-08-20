@@ -26,7 +26,8 @@
 }
 
 .services__row:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
   padding-left: 1rem;
   padding-right: 1rem;
   transform: translateX(2px);
@@ -36,7 +37,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--text-secondary);
+  color: var(--accent);
 }
 
 .services__body h3 {

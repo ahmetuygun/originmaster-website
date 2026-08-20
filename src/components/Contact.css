@@ -1,7 +1,7 @@
 .contact {
   padding: clamp(5.5rem, 12vw, 9rem) 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(37, 99, 235, 0.04), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(91, 75, 201, 0.1), transparent 55%),
     var(--bg-secondary);
 }
 

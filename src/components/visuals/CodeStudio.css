@@ -1,9 +1,10 @@
 .studio {
-  --studio-bg: #fbfbfa;
+  --studio-bg: #fcfbff;
   --studio-panel: #ffffff;
-  --studio-muted: #8a8a8e;
-  --studio-line: #ececeb;
-  --studio-code: #1d1d1f;
+  --studio-muted: #7d77a0;
+  --studio-line: #ebe7f6;
+  --studio-code: #221c4b;
+  --studio-terminal: #211a48;
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -11,7 +12,7 @@
   background: var(--studio-panel);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 36px 80px rgba(17, 17, 17, 0.08);
+    0 36px 80px rgba(38, 32, 80, 0.12);
   font-family:
     "SF Mono", "Geist Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
   color: var(--studio-code);
@@ -28,7 +29,7 @@
   gap: 1rem;
   height: 44px;
   padding: 0 0.95rem;
-  background: #f4f4f2;
+  background: #f3f0fb;
   border-bottom: 1px solid var(--studio-line);
   position: relative;
   z-index: 2;
@@ -75,9 +76,9 @@
   gap: 1.1rem;
   padding: 0.45rem 1rem;
   border-bottom: 1px solid var(--studio-line);
-  background: #fafaf8;
+  background: var(--bg-soft);
   font-size: 0.72rem;
-  color: #6e6e73;
+  color: var(--text-secondary);
   font-family: var(--font);
   position: relative;
   z-index: 2;
@@ -94,7 +95,7 @@
 
 .studio__sidebar {
   border-right: 1px solid var(--studio-line);
-  background: #f7f7f5;
+  background: #f6f3fd;
   padding: 0.9rem 0.75rem;
   font-family: var(--font);
 }
@@ -112,23 +113,23 @@
   flex-direction: column;
   gap: 0.35rem;
   font-size: 0.75rem;
-  color: #3a3a3c;
+  color: #4b4470;
 }
 
 .studio__sidebar li.is-open {
   padding-left: 0.35rem;
-  color: #111;
+  color: var(--text);
   font-weight: 500;
 }
 
 .studio__sidebar li.is-file {
   padding-left: 1.1rem;
-  color: #6e6e73;
+  color: var(--text-secondary);
 }
 
 .studio__sidebar li.is-active {
-  color: #111;
-  background: rgba(37, 99, 235, 0.08);
+  color: var(--text);
+  background: var(--accent-soft);
   border-radius: 6px;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
@@ -146,7 +147,7 @@
   display: flex;
   gap: 0;
   border-bottom: 1px solid var(--studio-line);
-  background: #f3f3f1;
+  background: #f2effb;
   font-family: var(--font);
   flex-shrink: 0;
 }
@@ -154,13 +155,13 @@
 .studio__tab {
   padding: 0.55rem 0.95rem;
   font-size: 0.75rem;
-  color: #8a8a8e;
+  color: var(--studio-muted);
   border-right: 1px solid var(--studio-line);
 }
 
 .studio__tab.is-active {
   background: var(--studio-bg);
-  color: #111;
+  color: var(--text);
   font-weight: 500;
 }
 
@@ -184,7 +185,7 @@
   padding-right: 0.75rem;
   font-size: 0.72rem;
   line-height: 1.55;
-  color: #b0b0b0;
+  color: #b3adcf;
   user-select: none;
 }
 
@@ -201,10 +202,10 @@
   min-height: 1.55em;
 }
 
-.tok--kw { color: #af00db; }
-.tok--fn { color: #2563eb; }
+.tok--kw { color: #9333ea; }
+.tok--fn { color: #5b4bc9; }
 .tok--str { color: #0a7b45; }
-.tok--cm { color: #8a8a8e; font-style: italic; }
+.tok--cm { color: var(--studio-muted); font-style: italic; }
 .tok--num { color: #b35c00; }
 
 .studio__caret {
@@ -213,14 +214,14 @@
   height: 1.05em;
   margin-left: 1px;
   vertical-align: text-bottom;
-  background: #2563eb;
+  background: var(--accent);
   animation: caretBlink 1s steps(1) infinite;
 }
 
 .studio__terminal {
   border-top: 1px solid var(--studio-line);
-  background: #111111;
-  color: #f5f5f7;
+  background: var(--studio-terminal);
+  color: var(--on-deep);
   flex: 1;
   min-height: 220px;
   display: flex;
@@ -254,12 +255,12 @@
 }
 
 .studio__prompt {
-  color: #7dd3fc;
+  color: #a99bf5;
   margin-right: 0.45rem;
 }
 
 .studio__out {
-  color: rgba(245, 245, 247, 0.72);
+  color: rgba(244, 242, 253, 0.72);
 }
 
 .studio__out--ok {
@@ -267,7 +268,7 @@
 }
 
 .studio__muted {
-  color: rgba(245, 245, 247, 0.35);
+  color: rgba(244, 242, 253, 0.35);
 }
 
 .studio__git-line {
@@ -300,7 +301,7 @@
 .studio__merge-bg {
   position: absolute;
   inset: 0;
-  background: #111111;
+  background: var(--studio-terminal);
 }
 
 .studio__snapshot {
@@ -315,7 +316,7 @@
     "SF Mono", "Geist Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
   font-weight: 400;
   line-height: 1.55;
-  color: #f5f5f7;
+  color: var(--on-deep);
   transform-origin: center center;
 }
 
@@ -324,7 +325,7 @@
 }
 
 .studio__snap-prompt {
-  color: #7dd3fc;
+  color: #a99bf5;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -333,7 +334,7 @@
 .studio__snap-origin,
 .studio__snap-master {
   display: inline-block;
-  color: #f5f5f7;
+  color: var(--on-deep);
 }
 
 .studio__snap-prefix {
